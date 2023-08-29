@@ -83,7 +83,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                     </div>-->
                     <br>
                     <?php
+                    session_start();
+                    if(isset($_SESSION['user'])){
+                        $user = $_SESSION['user'];
+                        var_dump($user);
+                    }
             if($_POST){
+                
             @$nome = $_POST['nome'];
             @$matrícula= $_POST['matrícula'];
             @$bibliotecas= $_POST['bibliotecas'];

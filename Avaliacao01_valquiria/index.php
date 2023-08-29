@@ -67,7 +67,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         
          <?php
          include('teste.php');
-         $user = new Login();
+         $login = new Login();
+         $user = new User();
     
         // if ($_REQUEST) {
         //     if (isset($_REQUEST['cod'])) {
@@ -88,6 +89,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         // }
         // }
         if($_POST){
+            session_start();
+            
+
             @$matricula = $_POST['matricula'];
             @$senha = $_POST['senha'];
             
@@ -98,21 +102,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 $matricula_digitada = $_POST['matricula'];
                 $senha_digitada = $_POST['senha'];
 
-                $user->login($matricula_digitada, $senha_digitada);
-                
-                if ($user->passou) {
+                if ($login->login($matricula_digitada, $senha_digitada)) {
                     // Usuário e senha válidos, redirecione para a página de sucesso
+                    $user->createUser($login->matriculaPassou, $login->senhaPassou, $login->emailPassou);
+                    $_SESSION['user'] = $user;
                     header("Location: pagina2.php");
                     exit(); // Certifique-se de encerrar o script após a redireção
                 } 
                 else {
                     // Usuário ou senha incorretos, exiba uma mensagem de erro
-                    if ($user->passou){
-                        echo "passou";
-                    }
-                    else{
-                        echo "nao";
-                    }
                     echo "Usuário ou senha incorretos. Tente novamente.";
                 }
             
