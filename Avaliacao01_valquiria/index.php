@@ -66,50 +66,64 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         </fieldset>
         
          <?php
+         include('teste.php');
+         $user = new Login();
     
-        /* if ($_REQUEST) {
-            if (isset($_REQUEST['cod'])) {
-                $cod = $_REQUEST['cod'];
-                if ($cod == 'error') {
-                    echo('<div class="d-grid">');
-                    echo('<div class="alert alert-danger">');
-                    echo('Usuário ou senha inválidos!');
-                    echo('</div>');
-                    echo ('</div>');
-            }else if($cod == '172'){
-                echo('<div class="d-grid">');
-                echo('<div class="alert alert-warning">');
-                echo('Sua sessão expirou!');
-                echo('</div>');
-                echo ('</div>');
-            }
-        }
-        } */
+        // if ($_REQUEST) {
+        //     if (isset($_REQUEST['cod'])) {
+        //         $cod = $_REQUEST['cod'];
+        //         if ($cod == 'error') {
+        //             echo('<div class="d-grid">');
+        //             echo('<div class="alert alert-danger">');
+        //             echo('Usuário ou senha inválidos!');
+        //             echo('</div>');
+        //             echo ('</div>');
+        //     }else if($cod == '172'){
+        //         echo('<div class="d-grid">');
+        //         echo('<div class="alert alert-warning">');
+        //         echo('Sua sessão expirou!');
+        //         echo('</div>');
+        //         echo ('</div>');
+        //     }
+        // }
+        // }
         if($_POST){
             @$matricula = $_POST['matricula'];
             @$senha = $_POST['senha'];
             
-            if(empty($matricula)||empty($senha));
-             else
-            echo ('<div class = "alert"> Todos os campos são obrigatórios');
-        }
-        // Dados do usuário (geralmente obtidos de um banco de dados)
-         $matricula_correta = "12345";
-         $senha_correta = "valval";
+            if(empty($matricula)||empty($senha)){
+                echo ('<div class = "alert"> Todos os campos são obrigatórios');
+            }
+            else{
+                $matricula_digitada = $_POST['matricula'];
+                $senha_digitada = $_POST['senha'];
 
-          // Dados enviados pelo formulário
-         $matricula_digitada = $_POST['matricula'];
-         $senha_digitada = $_POST['senha'];
+                $user->login($matricula_digitada, $senha_digitada);
+                
+                if ($user->passou) {
+                    // Usuário e senha válidos, redirecione para a página de sucesso
+                    header("Location: pagina2.php");
+                    exit(); // Certifique-se de encerrar o script após a redireção
+                } 
+                else {
+                    // Usuário ou senha incorretos, exiba uma mensagem de erro
+                    if ($user->passou){
+                        echo "passou";
+                    }
+                    else{
+                        echo "nao";
+                    }
+                    echo "Usuário ou senha incorretos. Tente novamente.";
+                }
+            
+            }
+
+            
+        }
+         
 
         // Verifique se o usuário e a senha coincidem com os dados armazenados
-        if ($matricula_digitada == $matricula_correta && $senha_digitada == $senha_correta) {
-        // Usuário e senha válidos, redirecione para a página de sucesso
-        header("Location: pagina2.php");
-         exit(); // Certifique-se de encerrar o script após a redireção
-        } else {
-         // Usuário ou senha incorretos, exiba uma mensagem de erro
-           echo "Usuário ou senha incorretos. Tente novamente.";
-          }
+    
 
 
         ?>
