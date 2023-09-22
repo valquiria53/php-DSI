@@ -22,31 +22,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 border-radius: 5px;
             }
         </style>
-    <style>
-         /* Defina o estilo do corpo (body) para incluir a imagem de fundo */
-        body {
-            background-image: url('img/livro.jpg'); /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho real da sua imagem */
-            background-size: cover; /* Isso faz com que a imagem cubra todo o fundo */
-            background-repeat: no-repeat; /* Evita que a imagem seja repetida */
-            background-attachment: fixed; /* Fixa a imagem de fundo para que ela não role com a página */
-        }
+        <style>
+            /* Defina o estilo do corpo (body) para incluir a imagem de fundo */
+            body {
+                background-image: url('img/livro.jpg'); /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho real da sua imagem */
+                background-size: cover; /* Isso faz com que a imagem cubra todo o fundo */
+                background-repeat: no-repeat; /* Evita que a imagem seja repetida */
+                background-attachment: fixed; /* Fixa a imagem de fundo para que ela não role com a página */
+            }
 
-    </style>
+        </style>
 
-    <link href ="css/bootstrap.min.css " rel="stylesheet" type="text/css"/> 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link href ="Avaliacao01_valquiria/css/bootstrap.min.css " rel="stylesheet" type="text/css"/> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
     </head>
     
     <body class="container" id="a" style="background-image: url('img/e6e48ff71c621a0b61e39025ecdd3912-gpLarge.jpg'); background-repeat: no-repeat; background-size: cover;">
         
-    <div class="container-fluid">
-           <br>
-      </div>
-        <header>
-            <nav class = "navbar" navbar-expand bg-dark>
-                <a class="navbar-brand" href="#"><strong>Biblioteca</strong></a>
-        </header>
+    <div class="container-fluid"><br>
+    </div>
+    <header>
+        <nav class = "navbar navbar-expand bg-dark" >
+            <a class="navbar-brand" href="#"><strong>Biblioteca</strong></a>
+        </nav>
+    </header>
     
          <div>
             <p align ="center">
