@@ -34,10 +34,40 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         </style>
 
         <link href ="css/bootstrap.min.css " rel="stylesheet" type="text/css"/> 
+        <script>
+            function mostraModal(){
+                document.getElementById('exampleModal').style.display = 'block';
+            }
+        </script>
 
     </head>
 
     <body class="container" id="a">
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" id="teste" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="mostraModal()">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" aria-modal="true" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
         <div>
@@ -50,7 +80,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             <fieldset>
                 <br>
                 <label> Nome</label> 
-                <input type= "text" name="nome" class="form-control" id="cliente" placeholder="digite seu nome completo" >
+                <input type= "text" name="nome" class="form-control" id="nome" placeholder="digite seu nome completo" >
 
                 <br>
                 <label>Matrícula</label> 
@@ -78,6 +108,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 <input type="text" name="autor" class="form-control" id="autor" placeholder="digite o nome do autor">
                 <br>
                 <input type="submit" class="btn btn-success" value="Salvar">
+                
 
                 <!-- <div class= "data">
                  <label>Data: </label>
@@ -97,23 +128,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                     @$nome = $_POST['nome'];
                     @$matricula = $_POST['matricula'];
                     @$bibliotecas = $_POST['bibliotecas'];
+                    @$titulo = $_POST['titulo'];
                     @$autor = $_POST['autor'];
-                    @$email = $_POST['email'];
 
-                    print_r($_POST);
+                    // print_r($_POST);
                                       
-                    if (empty($nome) || empty($matricula) || empty($bibliotecas)|| empty($titulo)|| empty($autor) || empty($email)) {
+                    if (empty($nome) || empty($matricula) || empty($bibliotecas)|| empty($titulo)|| empty($autor)) {
                         echo ('<div class = "alert alert-danger" role="alert"> Todos os campos são obrigatórios.</div>');
                     } else {
                         echo('<fieldset>');
                         echo ('<legend>');
                         echo ('Dados Cadastrados');
+                        echo("<br>");
+                        echo("Nome: ");
                         echo ($nome);
+                        echo("<br>");
+                        echo("matricula: ");
                         echo ($matricula);
+                        echo("<br>");
+                        echo("biblioteca: ");
                         echo($bibliotecas);
+                        echo("<br>");
+                        echo("titulo: ");
                         echo ($titulo);
+                        echo("<br>");
+                        echo("autor: ");
                         echo ($autor);
-                        echo ($email);
                         echo('</legend>');
                         echo ('</fieldset>');
                     }
